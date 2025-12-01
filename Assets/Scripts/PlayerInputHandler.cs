@@ -8,17 +8,22 @@ public class PlayerInputHandler : MonoBehaviour
     public string defaultMap;
     public string cannonMap;
     public string wheelMap;
+    public string sailMap;
 
     public bool usingCannon;
     public bool usingWheel;
+    public bool usingSail;
 
     public CannonController cannon;
     public WheelController wheel;
+    public SailController sail;
 
     public event Action<PlayerInputHandler> RequestEnterCannon;
     public event Action<PlayerInputHandler> RequestExitCannon;
     public event Action<PlayerInputHandler> RequestEnterWheel;
     public event Action<PlayerInputHandler> RequestExitWheel;
+    public event Action<PlayerInputHandler> RequestEnterSail;
+    public event Action<PlayerInputHandler> RequestExitSail;
 
     private PlayerInput _playerInput;
     private StarterAssetsInputs _inputs;
@@ -27,6 +32,9 @@ public class PlayerInputHandler : MonoBehaviour
     private float _rotateH;
     private float _rotateV;
     private float _turn;
+
+    private float _sailRotate;
+    private float _sailRaise;
 
     private void Awake()
     {
@@ -47,6 +55,12 @@ public class PlayerInputHandler : MonoBehaviour
         {
             if (_turn != 0) wheel.Turn(_turn);
         }
+
+        if (usingSail)
+        {
+            if (_sailRotate != 0) sail.Rotate(_sailRotate);
+            if (_sailRaise != 0) sail.Raise(_sailRaise);
+        }
     }
 
     public void OnInteract(InputValue value)
@@ -62,6 +76,12 @@ public class PlayerInputHandler : MonoBehaviour
         if (usingWheel)
         {
             RequestExitWheel?.Invoke(this);
+            return;
+        }
+
+        if (usingSail)
+        {
+            RequestExitSail?.Invoke(this);
             return;
         }
 
@@ -81,10 +101,16 @@ public class PlayerInputHandler : MonoBehaviour
             didRequest = true;
         }
 
+        if (RequestEnterSail != null)
+        {
+            RequestEnterSail.Invoke(this);
+            didRequest = true;
+        }
+
         if (!didRequest)
             _inputs.isInteracting = false;
     }
-    
+
     public void OnRotateH(InputValue value)
     {
         _rotateH = value.Get<float>();
@@ -107,14 +133,37 @@ public class PlayerInputHandler : MonoBehaviour
         if (!value.isPressed) return;
 
         if (usingCannon)
+        {
             RequestExitCannon?.Invoke(this);
-        else if (usingWheel)
+            return;
+        }
+
+        if (usingWheel)
+        {
             RequestExitWheel?.Invoke(this);
+            return;
+        }
+
+        if (usingSail)
+        {
+            RequestExitSail?.Invoke(this);
+            return;
+        }
     }
 
     public void OnTurn(InputValue value)
     {
         _turn = value.Get<float>();
+    }
+
+    public void OnSailRotate(InputValue value)
+    {
+        _sailRotate = value.Get<float>();
+    }
+
+    public void OnSailRaise(InputValue value)
+    {
+        _sailRaise = value.Get<float>();
     }
 
     public void EnterCannon(CannonController c)
@@ -160,6 +209,31 @@ public class PlayerInputHandler : MonoBehaviour
         _motor.enabled = true;
 
         _turn = 0;
+
+        _inputs.isInteracting = false;
+        _playerInput.SwitchCurrentActionMap(defaultMap);
+    }
+
+    public void EnterSail(SailController s)
+    {
+        usingSail = true;
+        sail = s;
+        _motor.enabled = false;
+
+        _sailRotate = 0;
+        _sailRaise = 0;
+
+        _playerInput.SwitchCurrentActionMap(sailMap);
+    }
+
+    public void ExitSail()
+    {
+        usingSail = false;
+        sail = null;
+        _motor.enabled = true;
+
+        _sailRotate = 0;
+        _sailRaise = 0;
 
         _inputs.isInteracting = false;
         _playerInput.SwitchCurrentActionMap(defaultMap);

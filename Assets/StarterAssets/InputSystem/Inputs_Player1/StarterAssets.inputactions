@@ -277,7 +277,7 @@
                     "name": "",
                     "id": "7e42db4e-105b-47c1-ab6d-eb3385b7dd97",
                     "path": "<Keyboard>/e",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
                     "groups": ";KeyboardMouse",
                     "action": "Interact",
@@ -505,7 +505,7 @@
                     "name": "",
                     "id": "c8065dae-0a69-4498-9259-2a6e385dc1d1",
                     "path": "<XInputController>/buttonNorth",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
                     "groups": ";Xbox Controller",
                     "action": "Interact",
@@ -643,6 +643,230 @@
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Sail",
+            "id": "309b8222-7ea5-4ec1-864f-cf4dde7cc33f",
+            "actions": [
+                {
+                    "name": "Exit",
+                    "type": "Button",
+                    "id": "165d8187-eac6-4332-977f-14faee43244e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SailRaise",
+                    "type": "Value",
+                    "id": "41c1e7da-b2d8-4ddc-9110-4d4c0fbd5261",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "SailRotate",
+                    "type": "Value",
+                    "id": "15a8cffe-5699-4feb-875c-311a1b04e840",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3bdfc0ed-166e-4886-9d2d-604a590b62e8",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard;KeyboardMouse",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "4b37242e-31f8-4803-8286-dbdf3c3b7ac7",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SailRaise",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "bf994de9-4f61-44e1-81d6-c73feccfa7eb",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard;KeyboardMouse",
+                    "action": "SailRaise",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "4f462f0c-e62f-4565-bf05-13de594cd6f6",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard;KeyboardMouse",
+                    "action": "SailRaise",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "a3dc678a-36fa-44f7-b352-c16b9a733274",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SailRotate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "114a900e-4fb3-429f-9233-4c93dae3d331",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard;KeyboardMouse",
+                    "action": "SailRotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "a6e47068-e3fa-4fb4-bf92-b31e2f70fce6",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard;KeyboardMouse",
+                    "action": "SailRotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Sail2",
+            "id": "62e103d7-b7fe-4e6b-a471-f8d6445d8b5a",
+            "actions": [
+                {
+                    "name": "Exit",
+                    "type": "Button",
+                    "id": "e9942df3-9c7e-4784-a91b-b281fee8ea34",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SailRaise",
+                    "type": "Value",
+                    "id": "44a74180-f4ac-4c95-8a51-e31e40c80fde",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "SailRotate",
+                    "type": "Value",
+                    "id": "c8d41911-1142-4888-96e6-b7eb7690181c",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a770ac1f-8207-4b64-a3a3-b47a7573cf2d",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard;Xbox Controller",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "3fca8b53-2f1a-45ab-bc30-c89f9bfc2f24",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SailRaise",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "474a70e6-9cdf-4323-a3ec-010b8542fee3",
+                    "path": "<XInputController>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard;Xbox Controller",
+                    "action": "SailRaise",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "3f47f0e8-5405-4a01-807d-66dab3beb18f",
+                    "path": "<XInputController>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard;Xbox Controller",
+                    "action": "SailRaise",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "0a948dd3-c56c-4d3d-8494-413e44e06d27",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SailRotate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "33ef4064-e4cf-49f3-b8ee-cdaaa066e284",
+                    "path": "<XInputController>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard;Xbox Controller",
+                    "action": "SailRotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "bff38552-2da3-4bec-aefb-4d19c6444bc0",
+                    "path": "<XInputController>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard;Xbox Controller",
+                    "action": "SailRotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
