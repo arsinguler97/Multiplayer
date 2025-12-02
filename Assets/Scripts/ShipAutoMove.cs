@@ -3,18 +3,32 @@ using UnityEngine;
 public class ShipAutoMove : MonoBehaviour
 {
     public SailController sail;
+    public WindManager wind;
 
     public float minSpeed = 1f;
     public float maxSpeed = 10f;
+    public float reverseSpeed = -2f;
 
     private float _currentSpeed;
     public float ShipSpeed => _currentSpeed;
 
     private void Update()
     {
-        float sailAmount = sail != null ? sail.OpenPercent : 0f;
+        if (sail == null || wind == null)
+            return;
 
-        _currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, sailAmount);
+        Vector3 windDir = wind.WindDirection.normalized;
+        Vector3 sailDir = sail.sailMesh.forward;
+
+        float angle = Vector3.Angle(sailDir, windDir);
+        float angleFactor = Mathf.Cos(angle * Mathf.Deg2Rad);
+
+        float sailAmount = sail.OpenPercent;
+
+        float forwardSpeed = Mathf.Lerp(minSpeed, maxSpeed, sailAmount) * Mathf.Max(0, angleFactor);
+        float backwardSpeed = reverseSpeed * Mathf.Clamp01(-angleFactor);
+
+        _currentSpeed = forwardSpeed + backwardSpeed;
 
         transform.position += transform.forward * (_currentSpeed * Time.deltaTime);
     }

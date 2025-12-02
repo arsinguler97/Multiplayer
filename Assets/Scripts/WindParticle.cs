@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class WindParticle : MonoBehaviour
 {
-    public Transform windTransform;
+    public Transform windDirectionRoot;
 
-    private void Update()
+    void Update()
     {
-        transform.rotation = Quaternion.Euler(0, windTransform.eulerAngles.y, 0);
+        transform.rotation = windDirectionRoot.rotation;
     }
 }

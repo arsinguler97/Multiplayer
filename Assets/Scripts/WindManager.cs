@@ -31,5 +31,5 @@ public class WindManager : MonoBehaviour
         Invoke(nameof(PickNewSpeed), 1f);
     }
 
-    public Vector3 WindDirection => windTransform.forward * -1f;
+    public Vector3 WindDirection => windTransform.forward;
 }

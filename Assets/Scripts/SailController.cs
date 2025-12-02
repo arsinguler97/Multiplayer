@@ -11,7 +11,7 @@ public class SailController : MonoBehaviour
 
     private float _raiseAmount;
 
-    public float OpenPercent => _raiseAmount;
+    public float OpenPercent => (_raiseAmount - minRaise) / (maxRaise - minRaise);
 
     private void Start()
     {

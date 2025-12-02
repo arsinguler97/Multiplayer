@@ -460,7 +460,7 @@ MonoBehaviour:
   maxH: 30
   firePoint: {fileID: 1633696240460177673}
   cannonballPrefab: {fileID: 3820455706749748368, guid: 084137522cdb4e14289560751697ca20, type: 3}
-  shootForce: 10
+  shootForce: 20
 --- !u!114 &1026888090791576846
 MonoBehaviour:
   m_ObjectHideFlags: 0
