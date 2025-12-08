@@ -1,11 +1,19 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class WindParticle : MonoBehaviour
 {
-    public Transform windDirectionRoot;
+    private WindManager _windManager;
+    [SerializeField] VisualEffect windEffect;
+
+    private void Start()
+    {
+        _windManager = WindManager.Instance;
+    }
 
     void Update()
     {
-        transform.rotation = windDirectionRoot.rotation;
+        Vector3 windDirection = _windManager.WindDirection * _windManager.WindStrength;
+        windEffect.SetVector3("WindDirection", windDirection);
     }
 }

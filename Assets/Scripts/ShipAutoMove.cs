@@ -17,7 +17,7 @@ public class ShipAutoMove : MonoBehaviour
         if (sail == null || wind == null)
             return;
 
-        Vector3 windDir = wind.WindDirection.normalized;
+        Vector3 windDir = wind.WindDirection;
         Vector3 sailDir = sail.sailMesh.forward;
 
         float angle = Vector3.Angle(sailDir, windDir);
