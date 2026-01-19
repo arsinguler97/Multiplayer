@@ -175,12 +175,21 @@ public class PlayerInputHandler : MonoBehaviour
         _rotateH = 0;
         _rotateV = 0;
 
+        if (cannon != null)
+        {
+            cannon.EnterControl();
+        }
+
         _playerInput.SwitchCurrentActionMap(cannonMap);
     }
 
     public void ExitCannon()
     {
         usingCannon = false;
+        if (cannon != null)
+        {
+            cannon.ExitControl();
+        }
         cannon = null;
         _motor.enabled = true;
 

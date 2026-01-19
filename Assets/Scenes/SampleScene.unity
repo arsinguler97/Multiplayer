@@ -858,6 +858,10 @@ PrefabInstance:
       propertyPath: windDirectionRoot
       value: 
       objectReference: {fileID: 1950620339}
+    - target: {fileID: 1171263230564106029, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.51
+      objectReference: {fileID: 0}
     - target: {fileID: 1484889548771929791, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
       propertyPath: windDirectionRoot
       value: 
@@ -906,9 +910,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5167134414450454643, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437472238371536407, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.51
+      objectReference: {fileID: 0}
     - target: {fileID: 6006291555163540873, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
       propertyPath: m_Name
       value: SailingShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382614440769435082, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.51
       objectReference: {fileID: 0}
     - target: {fileID: 9220485400546005781, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
       propertyPath: windDirectionRoot
