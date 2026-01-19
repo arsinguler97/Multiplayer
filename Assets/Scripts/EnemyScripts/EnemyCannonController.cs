@@ -9,6 +9,34 @@ public class EnemyCannonController : MonoBehaviour
     [SerializeField] private bool useBallisticArc = true;
     [SerializeField] private float launchAngleDegrees = 25f;
 
+    [Header("AI Settings")]
+    [SerializeField] private Transform target;
+    [SerializeField] private float attackRange = 50f;
+    [SerializeField] private float fireRate = 3f;
+    [SerializeField] private float aimRotateSpeed = 20f;
+
+    private float _nextFireTime;
+
+    private void Update()
+    {
+        if (target == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("PlayerShip");
+            if (player != null) target = player.transform;
+        }
+
+        if (target != null && Vector3.Distance(transform.position, target.position) <= attackRange)
+        {
+            AimAt(target.position, aimRotateSpeed);
+
+            if (Time.time >= _nextFireTime)
+            {
+                FireAt(target.position);
+                _nextFireTime = Time.time + fireRate;
+            }
+        }
+    }
+
     public Transform FirePoint => firePoint;
 
     public void Fire()
@@ -21,6 +49,7 @@ public class EnemyCannonController : MonoBehaviour
         {
             rb.linearVelocity = firePoint.forward * shootForce;
         }
+        AudioManager.Instance?.PlayShooting();
     }
 
     public void FireAt(Vector3 targetPosition)
@@ -42,6 +71,7 @@ public class EnemyCannonController : MonoBehaviour
         {
             rb.linearVelocity = dir * speed;
         }
+        AudioManager.Instance?.PlayShooting();
     }
 
     private bool TryGetBallisticShot(Vector3 targetPosition, out Vector3 dir, out float speed)

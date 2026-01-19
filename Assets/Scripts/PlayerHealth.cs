@@ -25,9 +25,14 @@ public class PlayerHealth : MonoBehaviour
 
         _current = Mathf.Max(0f, _current - amount);
         HealthChanged?.Invoke(_current, maxHealth);
-        if (_current <= 0f && destroyOnDeath)
+        if (_current <= 0f)
         {
-            Destroy(gameObject);
+            AudioManager.Instance?.PlayPlayerDeath();
+            if (destroyOnDeath) Destroy(gameObject);
+        }
+        else
+        {
+            AudioManager.Instance?.PlayPlayerDamaged();
         }
     }
 }

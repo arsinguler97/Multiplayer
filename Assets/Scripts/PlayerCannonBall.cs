@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerCannonBall : MonoBehaviour
 {
     [SerializeField] private float damage = 25f;
-    [SerializeField] private string enemyTag = "Enemy";
+    [SerializeField] private string targetTag = "Enemy";
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,12 +12,22 @@ public class PlayerCannonBall : MonoBehaviour
 
     private void TryDamage(Collider other)
     {
-        if (!other.CompareTag(enemyTag)) return;
+        if (!other.CompareTag(targetTag)) return;
 
-        EnemyHealth health = other.GetComponentInParent<EnemyHealth>();
-        if (health == null) return;
+        EnemyHealth enemy = other.GetComponentInParent<EnemyHealth>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+            AudioManager.Instance?.PlayEnemyDamaged();
+            Destroy(gameObject);
+            return;
+        }
 
-        health.TakeDamage(damage);
-        Destroy(gameObject);
+        PlayerHealth player = other.GetComponentInParent<PlayerHealth>();
+        if (player != null)
+        {
+            player.TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }

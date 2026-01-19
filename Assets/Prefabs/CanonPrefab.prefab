@@ -461,6 +461,10 @@ MonoBehaviour:
   firePoint: {fileID: 1633696240460177673}
   cannonballPrefab: {fileID: 3820455706749748368, guid: 084137522cdb4e14289560751697ca20, type: 3}
   shootForce: 20
+  autoFire: 0
+  target: {fileID: 0}
+  attackRange: 50
+  fireRate: 3
 --- !u!114 &1026888090791576846
 MonoBehaviour:
   m_ObjectHideFlags: 0

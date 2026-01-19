@@ -46,5 +46,6 @@ public class CannonController : MonoBehaviour
 
             rb.linearVelocity = inherit + forwardForce;
         }
+        AudioManager.Instance?.PlayShooting();
     }
 }
