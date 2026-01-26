@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource windSource;
 
     [Header("Audio Library")]
     public List<Sound> sounds;
@@ -29,6 +30,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         PlayBackgroundMusic();
+        PlayWindWoosh();
     }
 
     public void PlaySFX(string name)
@@ -54,6 +56,21 @@ public class AudioManager : MonoBehaviour
         musicSource.volume = s.volume;
         musicSource.loop = true;
         musicSource.Play();
+    }
+
+    public void PlayWindWoosh()
+    {
+        string name = "WindWoosh";
+        Sound s = sounds.Find(sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning($"Sound: {name} not found!");
+            return;
+        }
+        windSource.clip = s.clip;
+        windSource.volume = s.volume;
+        windSource.loop = true;
+        windSource.Play();
     }
 
     public void PlayShooting() => PlaySFX("Shooting");

@@ -25,9 +25,16 @@ public class EnemyHealth : MonoBehaviour
 
         _current = Mathf.Max(0f, _current - amount);
         HealthChanged?.Invoke(_current, maxHealth);
-        if (_current <= 0f && destroyOnDeath)
+        if (_current <= 0f)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        AudioManager.Instance?.PlayEnemyDeath();
+        GameManager.Instance?.OnEnemyDefeated();
+        if (destroyOnDeath) Destroy(gameObject);
     }
 }
