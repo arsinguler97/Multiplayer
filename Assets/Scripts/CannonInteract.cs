@@ -4,6 +4,7 @@ using StarterAssets;
 public class CannonInteract : MonoBehaviour
 {
     public CannonController cannon;
+    [SerializeField] private InteractableHighlight interactableHighlight;
 
     private PlayerInputHandler _handler;
     private StarterAssetsInputs _inputs;
@@ -26,6 +27,7 @@ public class CannonInteract : MonoBehaviour
         _handler.RequestExitCannon += TryExit;
 
         _subscribed = true;
+        interactableHighlight?.SetInteractable(true);
     }
 
     private void OnTriggerExit(Collider other)
@@ -34,6 +36,7 @@ public class CannonInteract : MonoBehaviour
         if (!_subscribed) return;
 
         Unsubscribe();
+        interactableHighlight?.SetDefault();
     }
 
     private void TryEnter(PlayerInputHandler p)
@@ -43,6 +46,7 @@ public class CannonInteract : MonoBehaviour
         if (_inUse) return;
 
         _inUse = true;
+        interactableHighlight?.SetInUse(true);
         p.EnterCannon(cannon);
     }
 
@@ -52,6 +56,8 @@ public class CannonInteract : MonoBehaviour
         if (p != _handler) return;
 
         _inUse = false;
+        interactableHighlight?.SetInUse(false);
+        interactableHighlight?.SetInteractable(true);
         p.ExitCannon();
         Unsubscribe();
     }

@@ -4,6 +4,7 @@ using StarterAssets;
 public class WheelInteract : MonoBehaviour
 {
     public WheelController wheel;
+    [SerializeField] private InteractableHighlight interactableHighlight;
 
     private PlayerInputHandler _handler;
     private StarterAssetsInputs _inputs;
@@ -26,6 +27,7 @@ public class WheelInteract : MonoBehaviour
         _handler.RequestExitWheel += TryExit;
 
         _subscribed = true;
+        interactableHighlight?.SetInteractable(true);
     }
 
     private void OnTriggerExit(Collider other)
@@ -34,6 +36,7 @@ public class WheelInteract : MonoBehaviour
         if (!_subscribed) return;
 
         Unsubscribe();
+        interactableHighlight?.SetDefault();
     }
 
     private void TryEnter(PlayerInputHandler p)
@@ -43,6 +46,7 @@ public class WheelInteract : MonoBehaviour
         if (_inUse) return;
 
         _inUse = true;
+        interactableHighlight?.SetInUse(true);
         p.EnterWheel(wheel);
     }
 
@@ -52,6 +56,8 @@ public class WheelInteract : MonoBehaviour
         if (p != _handler) return;
 
         _inUse = false;
+        interactableHighlight?.SetInUse(false);
+        interactableHighlight?.SetInteractable(true);
         p.ExitWheel();
         Unsubscribe();
     }

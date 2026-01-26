@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &330049889 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2837369935639312005, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
+  m_PrefabInstance: {fileID: 590264508884149248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c79f43f5c93f7c4788164ad2ceeb413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableHighlight
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,22 +865,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 720290757278848590, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
-      propertyPath: windDirectionRoot
-      value: 
-      objectReference: {fileID: 1950620339}
-    - target: {fileID: 1171263230564106029, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 1484889548771929791, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
-      propertyPath: windDirectionRoot
-      value: 
-      objectReference: {fileID: 1950620339}
     - target: {fileID: 4074785627488245421, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
       propertyPath: wind
       value: 
       objectReference: {fileID: 1950620341}
+    - target: {fileID: 4570205071333590079, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
+      propertyPath: interactableHighlight
+      value: 
+      objectReference: {fileID: 330049889}
     - target: {fileID: 4796743876658505234, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.679229
@@ -910,26 +913,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5167134414450454643, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 5437472238371536407, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.51
-      objectReference: {fileID: 0}
     - target: {fileID: 6006291555163540873, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
       propertyPath: m_Name
       value: SailingShip
       objectReference: {fileID: 0}
-    - target: {fileID: 6382614440769435082, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 9220485400546005781, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
-      propertyPath: windDirectionRoot
-      value: 
-      objectReference: {fileID: 1950620339}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -4,6 +4,7 @@ using StarterAssets;
 public class SailInteract : MonoBehaviour
 {
     public SailController sail;
+    [SerializeField] private InteractableHighlight interactableHighlight;
 
     private PlayerInputHandler _handler;
     private StarterAssetsInputs _inputs;
@@ -26,6 +27,8 @@ public class SailInteract : MonoBehaviour
 
         _handler.RequestEnterSail += TryEnter;
         _handler.RequestExitSail += TryExit;
+
+        interactableHighlight?.SetInteractable(true);
     }
 
     private void OnTriggerExit(Collider other)
@@ -43,6 +46,7 @@ public class SailInteract : MonoBehaviour
             _handler = null;
             _inputs = null;
             _inUse = false;
+            interactableHighlight?.SetDefault();
         }
     }
 
@@ -53,6 +57,7 @@ public class SailInteract : MonoBehaviour
         if (_inputs == null || !_inputs.isInteracting) return;
 
         _inUse = true;
+        interactableHighlight?.SetInUse(true);
         _inputs.isInteracting = false;
         p.EnterSail(sail);
     }
@@ -63,6 +68,8 @@ public class SailInteract : MonoBehaviour
         if (!_inUse) return;
 
         _inUse = false;
+        interactableHighlight?.SetInUse(false);
+        interactableHighlight?.SetInteractable(true);
         p.ExitSail();
     }
 }

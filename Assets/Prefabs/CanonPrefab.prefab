@@ -127,7 +127,7 @@ MeshRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -4973734387028869240, guid: ad0788cf22e181d4c9723f699e12e2c0, type: 3}
@@ -239,7 +239,7 @@ MeshRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -4973734387028869240, guid: ad0788cf22e181d4c9723f699e12e2c0, type: 3}
@@ -351,7 +351,7 @@ MeshRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -905690159841262435, guid: ad0788cf22e181d4c9723f699e12e2c0, type: 3}
@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: -1388116148317342158}
   - component: {fileID: 1026888090791576846}
   - component: {fileID: 8808479381159124438}
+  - component: {fileID: 4807595832602547451}
   m_Layer: 7
   m_Name: CanonPrefab
   m_TagString: Cannon
@@ -476,6 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CannonInteract
   cannon: {fileID: -1388116148317342158}
+  interactableHighlight: {fileID: 4807595832602547451}
 --- !u!65 &8808479381159124438
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -497,6 +499,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 3.5481422, z: 8.067237}
   m_Center: {x: 0, y: -0.33694875, z: -1.8885512}
+--- !u!114 &4807595832602547451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3061939319483413432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c79f43f5c93f7c4788164ad2ceeb413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableHighlight
+  interactableMask: 2
+  inUseMask: 4
+  includeInactive: 1
 --- !u!1 &3120121402003184631
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +578,7 @@ MeshRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -4973734387028869240, guid: ad0788cf22e181d4c9723f699e12e2c0, type: 3}
@@ -673,7 +690,7 @@ MeshRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -4973734387028869240, guid: ad0788cf22e181d4c9723f699e12e2c0, type: 3}
@@ -785,7 +802,7 @@ MeshRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -4973734387028869240, guid: ad0788cf22e181d4c9723f699e12e2c0, type: 3}
@@ -897,7 +914,7 @@ MeshRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -4973734387028869240, guid: ad0788cf22e181d4c9723f699e12e2c0, type: 3}
@@ -1047,7 +1064,7 @@ MeshRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 3349481329647215731, guid: ad0788cf22e181d4c9723f699e12e2c0, type: 3}
@@ -1159,7 +1176,7 @@ MeshRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -1444460858095362738, guid: ad0788cf22e181d4c9723f699e12e2c0, type: 3}
@@ -1271,7 +1288,7 @@ MeshRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -1444460858095362738, guid: ad0788cf22e181d4c9723f699e12e2c0, type: 3}
@@ -1383,7 +1400,7 @@ MeshRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -905690159841262435, guid: ad0788cf22e181d4c9723f699e12e2c0, type: 3}
