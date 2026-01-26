@@ -513,7 +513,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableHighlight
   interactableMask: 2
   inUseMask: 4
+  defaultMask: 1
   includeInactive: 1
+  setDefaultOnEnable: 1
 --- !u!1 &3120121402003184631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,6 +1550,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7905820105274013607, guid: 3c3c90b7fd9e76642beb4eef9491ffba, type: 3}
+      propertyPath: cannon
+      value: 
+      objectReference: {fileID: -1388116148317342158}
     - target: {fileID: 7905820105274013607, guid: 3c3c90b7fd9e76642beb4eef9491ffba, type: 3}
       propertyPath: cannonPosition
       value: 
