@@ -394,7 +394,7 @@
                 {
                     "name": "negative",
                     "id": "86f7aad0-cd6a-4e75-af5f-b40a14d3fc32",
-                    "path": "<XInputController>/dpad/left",
+                    "path": "<XInputController>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard;Xbox Controller",
@@ -405,7 +405,7 @@
                 {
                     "name": "positive",
                     "id": "89cb9e1a-52d7-4478-b2a3-15a6c60075af",
-                    "path": "<XInputController>/dpad/right",
+                    "path": "<XInputController>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard;Xbox Controller",
@@ -581,7 +581,7 @@
                 {
                     "name": "negative",
                     "id": "88b23e37-1867-4ebc-8ae2-cb998ab217f2",
-                    "path": "<XInputController>/dpad/left",
+                    "path": "<XInputController>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard;Xbox Controller",
@@ -592,7 +592,7 @@
                 {
                     "name": "positive",
                     "id": "eb04ae9d-0f01-408b-b514-00667ba17156",
-                    "path": "<XInputController>/dpad/right",
+                    "path": "<XInputController>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard;Xbox Controller",
@@ -614,7 +614,7 @@
                 {
                     "name": "negative",
                     "id": "cce6e774-ae42-44f2-b632-a2a67f875ba8",
-                    "path": "<XInputController>/dpad/down",
+                    "path": "<XInputController>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard;Xbox Controller",
@@ -625,7 +625,7 @@
                 {
                     "name": "positive",
                     "id": "34f61f24-f210-48e2-83b2-de1d30bb6d30",
-                    "path": "<XInputController>/dpad/up",
+                    "path": "<XInputController>/leftStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard;Xbox Controller",
@@ -816,7 +816,7 @@
                 {
                     "name": "negative",
                     "id": "474a70e6-9cdf-4323-a3ec-010b8542fee3",
-                    "path": "<XInputController>/dpad/down",
+                    "path": "<XInputController>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard;Xbox Controller",
@@ -827,7 +827,7 @@
                 {
                     "name": "positive",
                     "id": "3f47f0e8-5405-4a01-807d-66dab3beb18f",
-                    "path": "<XInputController>/dpad/up",
+                    "path": "<XInputController>/leftStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard;Xbox Controller",
@@ -849,7 +849,7 @@
                 {
                     "name": "negative",
                     "id": "33ef4064-e4cf-49f3-b8ee-cdaaa066e284",
-                    "path": "<XInputController>/dpad/left",
+                    "path": "<XInputController>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard;Xbox Controller",
@@ -860,7 +860,7 @@
                 {
                     "name": "positive",
                     "id": "bff38552-2da3-4bec-aefb-4d19c6444bc0",
-                    "path": "<XInputController>/dpad/right",
+                    "path": "<XInputController>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard;Xbox Controller",
