@@ -8,9 +8,11 @@ public class ShipAutoMove : MonoBehaviour
     public float minSpeed = 1f;
     public float maxSpeed = 10f;
     public float reverseSpeed = -2f;
+    [SerializeField] private float speedSmoothTime = 1.5f;
 
     private float _currentSpeed;
     public float ShipSpeed => _currentSpeed;
+    private float _speedVelocity;
 
     private void Update()
     {
@@ -28,7 +30,13 @@ public class ShipAutoMove : MonoBehaviour
         float forwardSpeed = Mathf.Lerp(minSpeed, maxSpeed, sailAmount) * Mathf.Max(0, angleFactor);
         float backwardSpeed = reverseSpeed * Mathf.Clamp01(-angleFactor);
 
-        _currentSpeed = forwardSpeed + backwardSpeed;
+        float targetSpeed = forwardSpeed + backwardSpeed;
+        _currentSpeed = Mathf.SmoothDamp(
+            _currentSpeed,
+            targetSpeed,
+            ref _speedVelocity,
+            speedSmoothTime
+        );
 
         transform.position += transform.forward * (_currentSpeed * Time.deltaTime);
     }
