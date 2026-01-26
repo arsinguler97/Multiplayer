@@ -14,8 +14,10 @@ public class CannonController : MonoBehaviour
     public GameObject cannonballPrefab;
     public float shootForce = 20f;
     [SerializeField] AimingManager aimingManager;
+    [SerializeField] private float fireCooldown = 2f;
 
     public bool IsControlled { get; private set; }
+    private float _nextFireTime;
 
     void Start()
     {
@@ -62,6 +64,9 @@ public class CannonController : MonoBehaviour
 
     public void Fire()
     {
+        if (fireCooldown > 0f && Time.time < _nextFireTime) return;
+        _nextFireTime = Time.time + fireCooldown;
+
         GameObject ball = Instantiate(cannonballPrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = ball.GetComponent<Rigidbody>();
         if (rb != null)
