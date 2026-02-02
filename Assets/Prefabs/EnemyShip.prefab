@@ -386,7 +386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8449377329360231908
 Transform:
   m_ObjectHideFlags: 0
@@ -417,7 +417,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -435,11 +435,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31b7dfd10535c154c9b24ae073284932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShipCollisionDamage
-  damage: 10
-  cooldownSeconds: 2
+  damage: 5
+  cooldownSeconds: 1
   targetLayers:
     serializedVersion: 2
     m_Bits: 4096
+  basePushDistance: 2.5
+  speedPushMultiplier: 0.2
+  maxExtraPush: 5
+  verticalPush: 0
 --- !u!1 &2762415291093381193
 GameObject:
   m_ObjectHideFlags: 0
