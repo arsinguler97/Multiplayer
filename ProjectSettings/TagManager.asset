@@ -22,10 +22,10 @@ TagManager:
   - Cannon
   - PlayerCannonBall
   - MinimapLayer
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Player2
+  - PlayerShipCollider
+  - EnemyShipCollider
   - 
   - 
   - 

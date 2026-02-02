@@ -165,5 +165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71685f1635a70a84d82a81f0f4d09f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCannonBall
-  damage: 10
+  damage: 5
   playerTag: PlayerShip

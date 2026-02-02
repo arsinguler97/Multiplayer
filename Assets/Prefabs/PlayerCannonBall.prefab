@@ -165,5 +165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ed75e6471e6c348932b23aebf888ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCannonBall
-  damage: 10
-  enemyTag: Enemy
+  damage: 20
+  targetTag: Enemy

@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 8091717429541867836}
   - component: {fileID: 7053086771046736333}
   - component: {fileID: 732338161842916901}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Deck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,6 +369,77 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3579927379126926101, guid: 33d095a9a98b7384f9921f9ff5f25ed4, type: 3}
+--- !u!1 &2296836796073183455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8449377329360231908}
+  - component: {fileID: 5436243612550556690}
+  - component: {fileID: 4076659688090263576}
+  m_Layer: 13
+  m_Name: ShipCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8449377329360231908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2296836796073183455}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6774731404389297802}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5436243612550556690
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2296836796073183455}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.5, y: 5, z: 20}
+  m_Center: {x: 0, y: 1.5, z: 2}
+--- !u!114 &4076659688090263576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2296836796073183455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b7dfd10535c154c9b24ae073284932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShipCollisionDamage
+  damage: 10
+  cooldownSeconds: 2
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1 &2762415291093381193
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,6 +867,7 @@ GameObject:
   - component: {fileID: 8705073899802650398}
   - component: {fileID: 9110617847781485192}
   - component: {fileID: 8663093192471288898}
+  - component: {fileID: 5226402371210902348}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Enemy
@@ -823,6 +895,7 @@ Transform:
   - {fileID: 1031771088822078967}
   - {fileID: 4491168437705827572}
   - {fileID: 3220595211053174711}
+  - {fileID: 8449377329360231908}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 75, z: 0}
 --- !u!195 &410936623529677826
@@ -952,6 +1025,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 10, z: 15}
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!54 &5226402371210902348
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7183635471574416286}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8455734609331940284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,6 +1336,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1031771088822078967}
     m_Modifications:
+    - target: {fileID: 2784514100703750564, guid: 71352735274090949b6850027a1350cc, type: 3}
+      propertyPath: cannon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3061939319483413432, guid: 71352735274090949b6850027a1350cc, type: 3}
       propertyPath: m_Name
       value: CanonPrefab (3)
@@ -1336,6 +1440,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1031771088822078967}
     m_Modifications:
+    - target: {fileID: 2784514100703750564, guid: 71352735274090949b6850027a1350cc, type: 3}
+      propertyPath: cannon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3061939319483413432, guid: 71352735274090949b6850027a1350cc, type: 3}
       propertyPath: m_Name
       value: CanonPrefab (2)
@@ -1436,6 +1544,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1031771088822078967}
     m_Modifications:
+    - target: {fileID: 2784514100703750564, guid: 71352735274090949b6850027a1350cc, type: 3}
+      propertyPath: cannon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3061939319483413432, guid: 71352735274090949b6850027a1350cc, type: 3}
       propertyPath: m_Name
       value: CanonPrefab (1)
@@ -1540,6 +1652,10 @@ PrefabInstance:
       propertyPath: input
       value: 
       objectReference: {fileID: 4416926081852918493, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+    - target: {fileID: 2784514100703750564, guid: 71352735274090949b6850027a1350cc, type: 3}
+      propertyPath: cannon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3061939319483413432, guid: 71352735274090949b6850027a1350cc, type: 3}
       propertyPath: m_Name
       value: CanonPrefab

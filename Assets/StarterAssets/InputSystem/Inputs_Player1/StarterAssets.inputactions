@@ -849,7 +849,7 @@
                 {
                     "name": "negative",
                     "id": "33ef4064-e4cf-49f3-b8ee-cdaaa066e284",
-                    "path": "<XInputController>/leftStick/down",
+                    "path": "<XInputController>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard;Xbox Controller",
