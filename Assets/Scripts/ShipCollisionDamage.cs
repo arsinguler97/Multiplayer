@@ -9,29 +9,67 @@ public class ShipCollisionDamage : MonoBehaviour
     [SerializeField] private float speedPushMultiplier = 0.2f;
     [SerializeField] private float maxExtraPush = 3f;
     [SerializeField] private float verticalPush = 0f;
+    [SerializeField] private float pushDuration = 0.2f;
 
     private float _nextDamageTime;
+    private readonly System.Collections.Generic.Dictionary<Transform, PushState> _pushes =
+        new System.Collections.Generic.Dictionary<Transform, PushState>();
+    private readonly System.Collections.Generic.List<Transform> _pushKeys =
+        new System.Collections.Generic.List<Transform>();
+    private readonly System.Collections.Generic.List<Transform> _pushesToRemove =
+        new System.Collections.Generic.List<Transform>();
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log($"[ShipCollisionDamage] Collision enter: {name} hit {collision.collider.name}", this);
         TryDamage(collision.collider);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"[ShipCollisionDamage] Trigger enter: {name} hit {other.name}", this);
         TryDamage(other);
+    }
+
+    private void Update()
+    {
+        if (_pushes.Count == 0) return;
+
+        _pushKeys.Clear();
+        _pushKeys.AddRange(_pushes.Keys);
+        _pushesToRemove.Clear();
+        for (int i = 0; i < _pushKeys.Count; i++)
+        {
+            Transform root = _pushKeys[i];
+            if (root == null || !_pushes.TryGetValue(root, out PushState state))
+            {
+                _pushesToRemove.Add(root);
+                continue;
+            }
+
+            state.elapsed += Time.deltaTime;
+            float t = state.duration > 0f ? Mathf.Clamp01(state.elapsed / state.duration) : 1f;
+            Vector3 pos = Vector3.Lerp(state.start, state.target, t);
+            WarpOrMove(root, pos);
+
+            if (t >= 1f)
+            {
+                _pushesToRemove.Add(root);
+            }
+            else
+            {
+                _pushes[root] = state;
+            }
+        }
+
+        for (int i = 0; i < _pushesToRemove.Count; i++)
+        {
+            _pushes.Remove(_pushesToRemove[i]);
+        }
     }
 
     private void TryDamage(Collider other)
     {
         if (other == null) return;
-        if ((targetLayers.value & (1 << other.gameObject.layer)) == 0)
-        {
-            Debug.Log($"[ShipCollisionDamage] Layer filtered: {other.name} layer {other.gameObject.layer}", this);
-            return;
-        }
+        if ((targetLayers.value & (1 << other.gameObject.layer)) == 0) return;
         if (Time.time < _nextDamageTime) return;
 
         EnemyHealth enemy = other.GetComponentInParent<EnemyHealth>();
@@ -39,14 +77,12 @@ public class ShipCollisionDamage : MonoBehaviour
         {
             enemy.TakeDamage(damage);
             AudioManager.Instance?.PlayEnemyDamaged();
-            Debug.Log($"[ShipCollisionDamage] Damaged EnemyHealth on {enemy.name}", this);
         }
 
         PlayerHealth player = other.GetComponentInParent<PlayerHealth>();
         if (player != null)
         {
             player.TakeDamage(damage);
-            Debug.Log($"[ShipCollisionDamage] Damaged PlayerHealth on {player.name}", this);
         }
 
         if (enemy == null && player == null) return;
@@ -74,8 +110,29 @@ public class ShipCollisionDamage : MonoBehaviour
         Vector3 selfTarget = selfRoot.position - dir * selfPush;
         Vector3 otherTarget = otherRoot.position + dir * otherPush;
 
-        WarpOrMove(selfRoot, selfTarget);
-        WarpOrMove(otherRoot, otherTarget);
+        StartPush(selfRoot, selfTarget);
+        StartPush(otherRoot, otherTarget);
+    }
+
+    private void StartPush(Transform root, Vector3 targetPos)
+    {
+        if (root == null) return;
+
+        if (pushDuration <= 0f)
+        {
+            WarpOrMove(root, targetPos);
+            return;
+        }
+
+        PushState state = new PushState
+        {
+            start = root.position,
+            target = targetPos,
+            duration = pushDuration,
+            elapsed = 0f
+        };
+
+        _pushes[root] = state;
     }
 
     private static void WarpOrMove(Transform root, Vector3 targetPos)
@@ -95,5 +152,13 @@ public class ShipCollisionDamage : MonoBehaviour
         ShipAutoMove ship = root.GetComponent<ShipAutoMove>();
         if (ship != null) return Mathf.Abs(ship.ShipSpeed);
         return 0f;
+    }
+
+    private struct PushState
+    {
+        public Vector3 start;
+        public Vector3 target;
+        public float duration;
+        public float elapsed;
     }
 }

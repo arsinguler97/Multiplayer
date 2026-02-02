@@ -2122,26 +2122,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3451549194948399411, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3942066903825350587, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 12288
-      objectReference: {fileID: 0}
     - target: {fileID: 4074785627488245421, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
       propertyPath: wind
       value: 
       objectReference: {fileID: 790001310}
-    - target: {fileID: 4731926203020003840, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4731926203020003840, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4796743876658505234, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2183,32 +2167,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5624632968980023786, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
-      propertyPath: damage
-      value: 5
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5624632968980023786, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
       propertyPath: maxExtraPush
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5624632968980023786, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
-      propertyPath: pushDistance
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5624632968980023786, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
-      propertyPath: cooldownSeconds
+      propertyPath: pushDuration
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5624632968980023786, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
       propertyPath: basePushDistance
-      value: 2.5
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624632968980023786, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
+      propertyPath: speedPushMultiplier
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6006291555163540873, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
       propertyPath: m_Name
       value: SailingShip
-      objectReference: {fileID: 0}
-    - target: {fileID: 8312407627148437591, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 12288
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
