@@ -444,6 +444,7 @@ MonoBehaviour:
   speedPushMultiplier: 0.2
   maxExtraPush: 5
   verticalPush: 0
+  pushDuration: 0.2
 --- !u!1 &2762415291093381193
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,7 +916,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 15
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -967,7 +968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChase
   repathInterval: 0.25
-  chaseSpeed: 15
+  chaseSpeed: 7.5
   chaseAcceleration: 10
 --- !u!114 &8705073899802650398
 MonoBehaviour:
@@ -985,9 +986,9 @@ MonoBehaviour:
   stopToFire: 1
   rotateToTarget: 1
   broadsideAim: 1
-  rotateSpeed: 120
+  rotateSpeed: 30
   aimCannons: 1
-  cannonRotateSpeed: 180
+  cannonRotateSpeed: 60
   sideDeadZone: 0.5
   cannons:
   - {fileID: 3389951305701923136}
