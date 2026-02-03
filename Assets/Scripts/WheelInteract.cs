@@ -11,14 +11,17 @@ public class WheelInteract : MonoBehaviour
 
     private bool _subscribed;
     private bool _inUse;
+    private bool _playerInside;
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        if (_subscribed) return;
 
         var h = other.GetComponent<PlayerInputHandler>();
         if (h == null) return;
+
+        _playerInside = true;
+        if (_subscribed) return;
 
         _handler = h;
         _inputs = other.GetComponent<StarterAssetsInputs>();
@@ -33,7 +36,13 @@ public class WheelInteract : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        if (!_subscribed) return;
+        if (_handler == null) return;
+
+        var h = other.GetComponent<PlayerInputHandler>();
+        if (h != _handler) return;
+
+        _playerInside = false;
+        if (_inUse) return;
 
         Unsubscribe();
         interactableHighlight?.SetDefault();
@@ -57,9 +66,17 @@ public class WheelInteract : MonoBehaviour
 
         _inUse = false;
         interactableHighlight?.SetInUse(false);
-        interactableHighlight?.SetInteractable(true);
         p.ExitWheel();
-        Unsubscribe();
+
+        if (_playerInside)
+        {
+            interactableHighlight?.SetInteractable(true);
+        }
+        else
+        {
+            Unsubscribe();
+            interactableHighlight?.SetDefault();
+        }
     }
 
     private void Unsubscribe()
@@ -74,5 +91,6 @@ public class WheelInteract : MonoBehaviour
 
         _inUse = false;
         _subscribed = false;
+        _playerInside = false;
     }
 }
