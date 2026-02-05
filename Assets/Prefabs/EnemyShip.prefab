@@ -982,7 +982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1b093aeb9d4e248b077bfe7892c57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  fireRate: 5
+  fireRate: 7.5
   stopToFire: 1
   rotateToTarget: 1
   broadsideAim: 1
@@ -1009,6 +1009,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHealth: 100
   destroyOnDeath: 1
+  deathParticlePrefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  deathParticleLifetime: 2
 --- !u!65 &8663093192471288898
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -26,8 +26,8 @@ TagManager:
   - Player2
   - PlayerShipCollider
   - EnemyShipCollider
-  - TerrainCollider
-  - 
+  - ObstacleCollider
+  - PlayerDamageCollider
   - 
   - 
   - 

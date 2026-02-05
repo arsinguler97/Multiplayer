@@ -167,3 +167,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCannonBall
   damage: 20
   targetTag: Enemy
+  hitParticlePrefab: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+  hitParticleLifetime: 2

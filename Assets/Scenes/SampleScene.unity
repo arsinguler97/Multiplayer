@@ -318,7 +318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2385444567041440034, guid: f718a10845157ee4da4f4604313f78e8, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 20479
+      value: 4095
       objectReference: {fileID: 0}
     - target: {fileID: 2385444567041440034, guid: f718a10845157ee4da4f4604313f78e8, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
@@ -374,10 +374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3033035180685388460, guid: f718a10845157ee4da4f4604313f78e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1890628061}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f718a10845157ee4da4f4604313f78e8, type: 3}
 --- !u!1 &410087039
@@ -591,11 +588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c79f43f5c93f7c4788164ad2ceeb413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableHighlight
---- !u!4 &1081778298 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3033035180685388460, guid: f718a10845157ee4da4f4604313f78e8, type: 3}
-  m_PrefabInstance: {fileID: 346168559}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1350179117
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,59 +844,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OceanFollow
   target: {fileID: 543450651918460629}
---- !u!1 &1890628060
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1890628061}
-  - component: {fileID: 1890628062}
-  m_Layer: 14
-  m_Name: Colliders
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1890628061
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890628060}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1081778298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1890628062
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890628060}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 100, y: 50, z: 117.9}
-  m_Center: {x: 57.4, y: 23, z: 11.2}
 --- !u!1 &1950620338
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,6 +912,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2881601848645004984, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.0110002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881601848645004984, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.77
+      objectReference: {fileID: 0}
     - target: {fileID: 3529943981896823824, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
       propertyPath: interactableHighlight
       value: 
@@ -1039,15 +986,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8900721543605544645, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
       propertyPath: m_Size.z
-      value: 0.79919124
+      value: 0.7222403
       objectReference: {fileID: 0}
     - target: {fileID: 8900721543605544645, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
       propertyPath: m_Center.x
-      value: 0.0000000027320741
+      value: 0.0000003162988
       objectReference: {fileID: 0}
     - target: {fileID: 8900721543605544645, guid: a4e6dd457d98cd64887808666bf2234a, type: 3}
       propertyPath: m_Center.z
-      value: -0.09975839
+      value: -0.10521227
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

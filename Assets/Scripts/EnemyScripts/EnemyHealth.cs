@@ -5,6 +5,8 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private bool destroyOnDeath = true;
+    [SerializeField] private GameObject deathParticlePrefab;
+    [SerializeField] private float deathParticleLifetime = 3f;
 
     private float _current;
 
@@ -35,6 +37,15 @@ public class EnemyHealth : MonoBehaviour
     {
         AudioManager.Instance?.PlayEnemyDeath();
         GameManager.Instance?.OnEnemyDefeated();
+        SpawnDeathParticle();
         if (destroyOnDeath) Destroy(gameObject);
+    }
+
+    private void SpawnDeathParticle()
+    {
+        if (deathParticlePrefab == null) return;
+
+        GameObject fx = Instantiate(deathParticlePrefab, transform.position, transform.rotation);
+        Destroy(fx, deathParticleLifetime);
     }
 }
