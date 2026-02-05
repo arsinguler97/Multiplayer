@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class SailController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class SailController : MonoBehaviour
     public float maxRaise = 100f;
 
     private float _raiseAmount;
+    private readonly HashSet<PlayerInputHandler> _activeUsers = new HashSet<PlayerInputHandler>();
 
     public float OpenPercent => (_raiseAmount - minRaise) / (maxRaise - minRaise);
 
@@ -17,6 +19,34 @@ public class SailController : MonoBehaviour
     {
         if (sailMesh != null)
             _raiseAmount = sailMesh.localScale.y;
+    }
+
+    private void Update()
+    {
+        float totalRotate = 0f;
+        float totalRaise = 0f;
+
+        foreach (PlayerInputHandler user in _activeUsers)
+        {
+            if (user == null) continue;
+            totalRotate += user.SailRotateInput;
+            totalRaise += user.SailRaiseInput;
+        }
+
+        if (Mathf.Abs(totalRotate) > 0.001f) Rotate(totalRotate);
+        if (Mathf.Abs(totalRaise) > 0.001f) Raise(totalRaise);
+    }
+
+    public void RegisterSailUser(PlayerInputHandler user)
+    {
+        if (user == null) return;
+        _activeUsers.Add(user);
+    }
+
+    public void UnregisterSailUser(PlayerInputHandler user)
+    {
+        if (user == null) return;
+        _activeUsers.Remove(user);
     }
 
     public void Rotate(float value)

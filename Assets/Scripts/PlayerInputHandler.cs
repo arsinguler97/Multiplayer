@@ -36,6 +36,9 @@ public class PlayerInputHandler : MonoBehaviour
     private float _sailRotate;
     private float _sailRaise;
 
+    public float SailRotateInput => usingSail ? _sailRotate : 0f;
+    public float SailRaiseInput => usingSail ? _sailRaise : 0f;
+
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -56,11 +59,6 @@ public class PlayerInputHandler : MonoBehaviour
             if (_turn != 0) wheel.Turn(_turn);
         }
 
-        if (usingSail)
-        {
-            if (_sailRotate != 0) sail.Rotate(_sailRotate);
-            if (_sailRaise != 0) sail.Raise(_sailRaise);
-        }
     }
 
     public void OnInteract(InputValue value)
@@ -232,11 +230,15 @@ public class PlayerInputHandler : MonoBehaviour
         _sailRotate = 0;
         _sailRaise = 0;
 
+        sail?.RegisterSailUser(this);
+
         _playerInput.SwitchCurrentActionMap(sailMap);
     }
 
     public void ExitSail()
     {
+        sail?.UnregisterSailUser(this);
+
         usingSail = false;
         sail = null;
         _motor.enabled = true;
