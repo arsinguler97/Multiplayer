@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int enemiesToWin = 3;
     [Header("Flow")]
     [SerializeField] private float restartDelaySeconds = 1.5f;
+    [Header("UI")]
+    [SerializeField] private TMP_Text enemiesLeftText;
+    [SerializeField] private string enemiesLeftPrefix = "Enemies Left: ";
 
     private int _enemiesDefeated;
     private bool _isGameOver;
@@ -24,6 +28,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        RefreshEnemiesLeftUI();
     }
 
     public void OnEnemyDefeated()
@@ -32,6 +38,7 @@ public class GameManager : MonoBehaviour
 
         _enemiesDefeated++;
         Debug.Log($"Enemies Defeated: {_enemiesDefeated}/{enemiesToWin}");
+        RefreshEnemiesLeftUI();
 
         if (_enemiesDefeated >= enemiesToWin)
         {
@@ -63,5 +70,13 @@ public class GameManager : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.buildIndex);
+    }
+
+    private void RefreshEnemiesLeftUI()
+    {
+        if (enemiesLeftText == null) return;
+
+        int left = Mathf.Max(0, enemiesToWin - _enemiesDefeated);
+        enemiesLeftText.text = enemiesLeftPrefix + left;
     }
 }
