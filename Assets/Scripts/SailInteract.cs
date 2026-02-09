@@ -5,6 +5,9 @@ public class SailInteract : MonoBehaviour
 {
     public SailController sail;
     [SerializeField] private InteractableHighlight interactableHighlight;
+    [SerializeField] private Transform outlineRoot;
+    [SerializeField] private Outline[] outlines;
+    [SerializeField] private bool autoCollectOutlines = true;
 
     private PlayerInputHandler _handler;
     private StarterAssetsInputs _inputs;
@@ -12,6 +15,22 @@ public class SailInteract : MonoBehaviour
     private bool _subscribed;
     private bool _inUse;
     private bool _playerInside;
+
+    private void Awake()
+    {
+        RefreshOutlineCache();
+        SetOutlineActive(false);
+    }
+
+    private void OnValidate()
+    {
+        RefreshOutlineCache();
+    }
+
+    private void OnDisable()
+    {
+        SetOutlineActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -62,6 +81,7 @@ public class SailInteract : MonoBehaviour
         _inputs.isInteracting = false;
 
         interactableHighlight?.SetInUse(true);
+        SetOutlineActive(true);
         p.EnterSail(sail);
     }
 
@@ -73,6 +93,7 @@ public class SailInteract : MonoBehaviour
         _inUse = false;
 
         interactableHighlight?.SetInUse(false);
+        SetOutlineActive(false);
 
         p.ExitSail();
 
@@ -100,5 +121,36 @@ public class SailInteract : MonoBehaviour
         _inUse = false;
         _subscribed = false;
         _playerInside = false;
+
+        SetOutlineActive(false);
+    }
+
+    private void RefreshOutlineCache()
+    {
+        if (!autoCollectOutlines) return;
+
+        var root = outlineRoot;
+        if (root == null && sail != null && sail.sailMesh != null)
+        {
+            root = sail.sailMesh;
+        }
+        if (root == null)
+        {
+            root = transform;
+        }
+
+        outlines = root.GetComponentsInChildren<Outline>(true);
+    }
+
+    private void SetOutlineActive(bool active)
+    {
+        if (outlines == null || outlines.Length == 0) return;
+
+        for (int i = 0; i < outlines.Length; i++)
+        {
+            var outline = outlines[i];
+            if (outline == null) continue;
+            if (outline.enabled != active) outline.enabled = active;
+        }
     }
 }
