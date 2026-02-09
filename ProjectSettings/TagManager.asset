@@ -28,7 +28,7 @@ TagManager:
   - EnemyShipCollider
   - ObstacleCollider
   - PlayerDamageCollider
-  - 
+  - PlayerObstacle
   - 
   - 
   - 
