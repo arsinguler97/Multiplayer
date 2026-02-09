@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SailController
   sailMesh: {fileID: 1094797381977344615}
-  rotateSpeed: 60
-  raiseSpeed: 30
+  rotateSpeed: 30
+  raiseSpeed: 15
   minRaise: 10
   maxRaise: 100
 --- !u!1 &1581451323301440058
@@ -632,7 +632,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &5875621776387667169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -646,13 +646,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShipObstacleCollision
   damage: 10
-  cooldownSeconds: 1
+  cooldownSeconds: 0.1
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 16384
-  basePushDistance: 5
+  basePushDistance: 10
   speedPushMultiplier: 0.2
-  maxExtraPush: 10
+  maxExtraPush: 20
   pushDuration: 1
 --- !u!1 &4125453755074504619
 GameObject:

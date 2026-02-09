@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WindDirectionFollower : MonoBehaviour
+public class WindRooster : MonoBehaviour
 {
     [SerializeField] private WindManager windManager;
     [SerializeField] private Transform targetTransform;
