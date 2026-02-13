@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using StarterAssets;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TMP_Text enemiesLeftText;
     [SerializeField] private string enemiesLeftPrefix = "Enemies Left: ";
+    [SerializeField] private GameObject gameWonPanel;
 
     private int _enemiesDefeated;
     private bool _isGameOver;
@@ -29,6 +31,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        Time.timeScale = 1f;
+        if (gameWonPanel != null) gameWonPanel.SetActive(false);
         RefreshEnemiesLeftUI();
     }
 
@@ -57,6 +61,9 @@ public class GameManager : MonoBehaviour
         _isGameOver = true;
         Debug.Log("YOU WIN!");
         AudioManager.Instance?.PlayWinning();
+        SetWinCursorState();
+        Time.timeScale = 0f;
+        if (gameWonPanel != null) gameWonPanel.SetActive(true);
     }
 
     private void LoseGame()
@@ -68,8 +75,16 @@ public class GameManager : MonoBehaviour
 
     private void RestartCurrentScene()
     {
+        RestoreGameplayCursorState();
+        Time.timeScale = 1f;
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.buildIndex);
+    }
+
+    public void PlayAgain()
+    {
+        if (!_isGameOver) return;
+        RestartCurrentScene();
     }
 
     private void RefreshEnemiesLeftUI()
@@ -78,5 +93,29 @@ public class GameManager : MonoBehaviour
 
         int left = Mathf.Max(0, enemiesToWin - _enemiesDefeated);
         enemiesLeftText.text = enemiesLeftPrefix + left;
+    }
+
+    private void SetWinCursorState()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        StarterAssetsInputs inputs = FindFirstObjectByType<StarterAssetsInputs>();
+        if (inputs == null) return;
+
+        inputs.cursorLocked = false;
+        inputs.cursorInputForLook = false;
+    }
+
+    private void RestoreGameplayCursorState()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        StarterAssetsInputs inputs = FindFirstObjectByType<StarterAssetsInputs>();
+        if (inputs == null) return;
+
+        inputs.cursorLocked = true;
+        inputs.cursorInputForLook = true;
     }
 }
